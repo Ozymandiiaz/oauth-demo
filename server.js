@@ -14,9 +14,16 @@
 //and config/passport-setup.js. I have combined all of this into server.js for
 //this demo, but I may eventually reorganize.
 
-//The URL at which the app is deployed (replace with 'http://localhost:30000'
-//when testing)
-const DEPLOY_URL = "http://oauth-demo.us-west-2.elasticbeanstalk.com";
+//The URL at which the app is deployed,
+//Comment out first option when testing locally, and second option when
+//deploying remotely.
+//Note also that when DEPLOY_URL is toggled, you need to update the callback URL
+//provided to your OAuth providers. E.g., for GitHub, go to Settings->Developer
+//Settings (on left-hand sidebar)-->OAuth Apps. The App homepage appears 
+//not to matter.
+
+//const DEPLOY_URL = "http://oauth-demo.us-west-2.elasticbeanstalk.com";
+const DEPLOY_URL = "http://localhost:30000";
 
 //Set up the port the server will be listening in on
 const PORT = process.env.HTTP_PORT || 30000;
