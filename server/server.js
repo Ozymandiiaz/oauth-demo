@@ -15,7 +15,7 @@
 //this demo, but I may eventually reorganize.
 
 //Set up the port the server will be listening in on
-const PORT = process.env.PORT || 30000;
+const PORT = process.env.HTTP_PORT || 30000;
 
 //We'll use passport middleware for authentication
 const passport = require('passport');
