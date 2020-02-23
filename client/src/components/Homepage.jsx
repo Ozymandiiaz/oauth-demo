@@ -99,7 +99,7 @@ export default class HomePage extends Component {
           {!this.state.authenticated ? (
             <center>
             <h1>Welcome to the OAuth Demo App!<br/>Please Log in</h1>
-            <button className="btn btn-block btn-primary"
+            <button className="btn btn-block btn-xl btn-social btn-github"
                onClick={this.handleLoginClick}>
               <span className="fa fa-github"></span> Sign in with GitHub
             </button>
@@ -112,7 +112,7 @@ export default class HomePage extends Component {
                  Username: {this.state.user.username}<br/>
                  Provider: {this.state.user.provider}<br/>
               </p>
-              <button className="btn btn-block btn-primary"
+              <button className="btn btn-block btn-xl btn-social btn-github"
                onClick={this.handleLogoutClick}>
               <span className="fa fa-github"></span> Sign out from GitHub
             </button>

@@ -16,7 +16,7 @@
 
 //The URL at which the app is deployed (replace with 'http://localhost:30000'
 //when testing)
-const DEPLOY_URL = "http://oauth-demo.us-west-2.elasticbeanstalk.com/";
+const DEPLOY_URL = "http://oauth-demo.us-west-2.elasticbeanstalk.com";
 
 //Set up the port the server will be listening in on
 const PORT = process.env.HTTP_PORT || 30000;
