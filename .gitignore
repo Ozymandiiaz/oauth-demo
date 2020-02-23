@@ -21,11 +21,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # server 
-/server/config
-/server/models
-/server/routes
-/server/index.js
-node_modules
+/server
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
