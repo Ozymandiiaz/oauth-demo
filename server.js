@@ -53,9 +53,6 @@ passport.deserializeUser(function(user, done) {
 
 //We'll use the path middleware to manipulate paths
 const path = require("path");
-//rootPath is needed to indicate the ../client/build directory
-let rootPath = __dirname.substring(0,__dirname.length-6);
-
 
 // Initialize new Express (server-side) session
 const session = require('express-session');
@@ -71,7 +68,7 @@ app
 .use(session({secret: "speedgolf"}))
   .use(passport.initialize())
   .use(passport.session())
-  .use(express.static(path.join(rootPath,"client/build")))
+  .use(express.static(path.join(__dirname,"client/build")))
   .listen(PORT, () => console.log(`Listening on ${PORT} with path = ${rootPath}`));
 
 ////////////
