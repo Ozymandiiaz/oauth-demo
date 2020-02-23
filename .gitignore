@@ -30,3 +30,7 @@ yarn-error.log*
 /server/node_modules
 /client/build/
 node_modules
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml

@@ -1,4 +1,4 @@
-# Authenticate Twitter via passport
+# OAuth Demo using Express.js, Passport.js and React.js
 
 ### About
 
@@ -16,7 +16,7 @@ Run on express server
 
 ```
 cd server/
-nodemon index.js
+nodemon server.js
 ```
 
 Go to localhost:4000
@@ -25,16 +25,10 @@ Go to localhost:4000
 
 ```
 cd client/
-yarn install
-yarn run start
-```
+npm install
+npm run build
 
-Go to localhost:3000
+Go to localhost:30000
 
 ### Instructions
-
-- Rename `/server/config/keys.copy.js` to `/server/config/keys.js` and add your keys
-- You can follow my online tutorial
-- Server: https://medium.com/@leannezhang/building-a-web-application-twitter-oauth-using-passport-js-part-1-9ffa6f49ef0
-
-- Client: https://medium.com/@leannezhang/login-logout-page-using-react-5989eb289047
+Please see Lecture Notes: W08C1.docx

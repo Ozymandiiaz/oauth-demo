@@ -1,4 +1,3 @@
-import Header from "./Header";
 import PropTypes from "prop-types";
 import React, { Component } from "react";
 
@@ -27,10 +26,6 @@ export default class HomePage extends Component {
     authenticated: false
   };
 
-  //Method to set authenticated to false
-  _handleNotAuthenticated = () => {
-    this.setState({ authenticated: false });
-  };
 
   //New componentDidMount: We set component state based on results of fetch to auth/test route.
   componentDidMount() {
@@ -84,29 +79,46 @@ export default class HomePage extends Component {
       });
   }
 
+  handleLoginClick = () => {
+    // Authenticate using via passport api
+    // Open Oauth login page
+    // Upon successful login, a cookie session will be stored in the client
+    window.open("/auth/github", "_self");
+  };
+
+  handleLogoutClick = () => {
+    // Logout using Oauth passport api
+    // Set authenticated state to false in the HomePage
+    window.open("/auth/logout", "_self");
+    this.setState({authenticated: false, user: {}});
+  };
+
   render() {
-    const { authenticated } = this.state; //Authenticated can now be used in render logic
     return (
       <div>
-        <Header
-          authenticated={authenticated}
-          handleNotAuthenticated={this._handleNotAuthenticated}
-        />
-        <div>
-          {!authenticated ? (
-            <h1>Welcome!</h1>
+          {!this.state.authenticated ? (
+            <center>
+            <h1>Welcome to the OAuth Demo App!<br/>Please Log in</h1>
+            <button className="btn btn-block btn-primary"
+               onClick={this.handleLoginClick}>
+              <span className="fa fa-github"></span> Sign in with GitHub
+            </button>
+            </center>
           ) : (
-            <div>
-              <h1>User has logged in succcessfully!</h1>
-              <h2>Welcome!</h2>
-              <img src={this.state.user.profileImageUrl}/><br/>
+              <center>
+              <h1>You have logged in succcessfully!</h1>
+              <img src={this.state.user.profileImageUrl} alt="profile pic"/><br/>
               <p>Id: {this.state.user.id}<br/>
                  Username: {this.state.user.username}<br/>
                  Provider: {this.state.user.provider}<br/>
-              </p>     
-            </div>
+              </p>
+              <button className="btn btn-block btn-primary"
+               onClick={this.handleLogoutClick}>
+              <span className="fa fa-github"></span> Sign out from GitHub
+            </button>
+              
+              </center>     
           )}
-        </div>
       </div>
     );
   }
