@@ -80,9 +80,10 @@ app
 //We define the following routes:
 
 //MAIN route: serves the React.js app
-app.get('/', function (req, res) {
-    res.sendFile(path.join(__dirname, '/client/build/index.html'));
-});
+//Note: Commented out because .use(express.static... above takes care of main route
+//app.get('/', function (req, res) {
+//    res.sendFile(path.join(__dirname, '/client/build/index.html'));
+//});
 
 //AUTHENTICATE route: Uses passport to authenticate with GitHub.
 //Should be accessed when user clicks on 'Login with GitHub' button on 
