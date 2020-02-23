@@ -69,7 +69,7 @@ app
   .use(passport.initialize())
   .use(passport.session())
   .use(express.static(path.join(__dirname,"client/build")))
-  .listen(PORT, () => console.log(`Listening on ${PORT} with path = ${rootPath}`));
+  .listen(PORT, () => console.log(`Listening on ${PORT}`));
 
 ////////////
 //APP ROUTES
