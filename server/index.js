@@ -12,10 +12,11 @@ const cors = require("cors");
 const cookieParser = require("cookie-parser"); // parse cookie header
 
 // connect to mongodb
-mongoose.connect(keys.MONGODB_URI, () => {
-  console.log("connected to mongo db");
+mongoose.connect(keys.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true }, () => {
+  console.log("Connected to MongoDB");
 });
 
+//Set up cookie session
 app.use(
   cookieSession({
     name: "session",
@@ -24,11 +25,12 @@ app.use(
   })
 );
 
-// parse cookies
+// Set up cookie parser
 app.use(cookieParser());
 
 // initalize passport
 app.use(passport.initialize());
+
 // deserialize cookie from the browser
 app.use(passport.session());
 
@@ -55,13 +57,13 @@ const authCheck = (req, res, next) => {
   }
 };
 
-// if it's already login, send the profile response,
-// otherwise, send a 401 response that the user is not authenticated
-// authCheck before navigating to home page
+// Perform authCheck before navigating to home page.
+// If the user is authenticated, send the profile response,
+// otherwise, send a 401 response that the user is not authenticated.
 app.get("/", authCheck, (req, res) => {
   res.status(200).json({
     authenticated: true,
-    message: "user successfully authenticated",
+    message: "user has successfully authenticated",
     user: req.user,
     cookies: req.cookies
   });

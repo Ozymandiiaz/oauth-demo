@@ -12,28 +12,29 @@ export default class Header extends Component {
     return (
       <ul className="menu">
         <li>
-          <Link to="/">Home</Link>
+          Welcome to SpeedScore!
         </li>
         {authenticated ? (
           <li onClick={this._handleLogoutClick}>Logout</li>
         ) : (
-          <li onClick={this._handleSignInClick}>Login</li>
+          <li onClick={this._handleLoginClick}>Login</li>
         )}
       </ul>
     );
   }
 
-  _handleSignInClick = () => {
-    // Authenticate using via passport api in the backend
-    // Open Twitter login page
+  _handleLoginClick = () => {
+    // Authenticate using via passport api
+    // Open Oauth login page
     // Upon successful login, a cookie session will be stored in the client
-    window.open("http://localhost:4000/auth/twitter", "_self");
+    window.open("http://localhost:30000/auth/github", "_self");
+    
   };
 
   _handleLogoutClick = () => {
-    // Logout using Twitter passport api
+    // Logout using Oauth passport api
     // Set authenticated state to false in the HomePage
-    window.open("http://localhost:4000/auth/logout", "_self");
+    window.open("http://localhost:30000/auth/logout", "_self");
     this.props.handleNotAuthenticated();
   };
 }
