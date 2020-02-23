@@ -14,6 +14,10 @@
 //and config/passport-setup.js. I have combined all of this into server.js for
 //this demo, but I may eventually reorganize.
 
+//The URL at which the app is deployed (replace with 'http://localhost:30000'
+//when testing)
+const DEPLOY_URL = "http://oauth-demo.us-west-2.elasticbeanstalk.com/";
+
 //Set up the port the server will be listening in on
 const PORT = process.env.HTTP_PORT || 30000;
 
@@ -27,7 +31,7 @@ const GithubStrategy = require('passport-github').Strategy;
 passport.use(new GithubStrategy({
     clientID: "1b903fd9129642776b3c",
     clientSecret: "1e54162ecb7230eca9d26cc6484636e561e4d838",
-    callbackURL: "http://localhost:30000/auth/github/callback"
+    callbackURL: DEPLOY_URL + "/auth/github/callback"
   },
   function(accessToken, refreshToken, profile, done) {
     return done(null, profile);

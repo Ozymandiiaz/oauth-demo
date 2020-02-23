@@ -51,7 +51,7 @@ export default class HomePage extends Component {
     // domain of the React single-page app. I don't like this; it seems
     // contrived. Why wouldn't we want to keep the client and server code in the
     // same domain to avoid the need for CORS?
-    fetch("http://localhost:30000/auth/login/success", {
+    fetch("/auth/login/success", {
       method: "GET",
       credentials: "include",
       headers: {
